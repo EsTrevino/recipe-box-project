@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Panel, Jumbotron} from 'react-bootstrap';
+import '../style/RecipeBox.css';
 
 import DisplayIngredients from './SelectedIngredientList';
 
@@ -28,26 +29,26 @@ class RecipeBox extends Component {
     let recipes = this.props.currentRecipesInApp;
     //function for manipulating and displaying recipes
     let recipesList = recipes.map((recipe, index) => {
-
       return (
-
-          <Panel key={index}>
-            <Panel.Heading>
-              <Panel.Title>
-                <Button bsStyle='link' value={recipe.idNumber} onClick={this.toggleHidden.bind(this)}>
-                  {recipe.recipeName}
-                </Button>
-              </Panel.Title>
-            </Panel.Heading>
+          <div className="card individual-recipe-holder" key={index}>
+            <div className="alert-success">
+              <Button bsStyle='link ' value={recipe.idNumber} onClick={this.toggleHidden.bind(this)}>
+                {recipe.recipeName}
+              </Button>
+            </div>
                 {
                   !this.state.isHidden && this.state.showId == recipe.idNumber &&
                     <DisplayIngredients list={recipe.ingredientList} />
                 }
-          </Panel>
+          </div>
       )
     })
     return (
-      <Jumbotron>
+      <Jumbotron className="box">
+        <div className="title-holder">
+            <h1 className="jumbo-title">Recipes   <i class="fas fa-utensils"></i></h1>
+        </div>
+
       {recipesList}
       </Jumbotron>
     )

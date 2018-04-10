@@ -1,0 +1,39 @@
+h6{
+  text-align: center;
+  padding: 10px;
+  padding-top:20px;
+}
+
+.ingredient-box{
+  padding:10px;
+  margin-bottom:10px;
+  width:50%;
+  margin: auto;
+  text-align:center;
+}
+
+.delete-button{
+
+}
+
+.edit-button{
+
+}
+
+.ingredient-box-bottom{
+  width:80%;
+  margin:auto;
+  margin-bottom:30px;
+  margin-top:30px;
+}
+
+.button-holder{
+  margin:auto;
+}
+
+.button-holder .edit-button{
+  margin-left:5px;
+}
+.button-holder .delete-button{
+  margin-right:20px;
+}

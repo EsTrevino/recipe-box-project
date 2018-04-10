@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {Panel} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+
+import '../style/ingredientListExpand.css';
 
 class DisplayIngredients extends Component {
   constructor(props){
@@ -9,18 +11,20 @@ class DisplayIngredients extends Component {
       listOfIngredients: props.list
     }
   }
-  
+
   render() {
     return (
-        <Panel.Body>
+      <div className="container">
           <div>
             <h6>Ingredients</h6>
-            <div>
-              <ul>
+          </div>
+          <hr></hr>
+          <div className="ingredient-box">
+              <ul className="list-group">
                 {
                   this.state.listOfIngredients.map((ingredient, index) =>{
                     return(
-                      <li key={index}>
+                      <li className="list-group-item" key={index}>
                         {ingredient}
                       </li>
                     )
@@ -28,8 +32,13 @@ class DisplayIngredients extends Component {
                 }
               </ul>
             </div>
+          <div className="ingredient-box-bottom row">
+            <div className="button-holder">
+            <Button className="delete-button" bsStyle="danger">Delete <i className="fas fa-trash-alt "></i></Button>
+            <Button className="edit-button" bsStyle="warning">Edit  <i className="fas fa-edit"></i></Button>
+            </div>
           </div>
-      </Panel.Body>
+    </div>
     )
   }
 }
