@@ -6,7 +6,6 @@ import '../style/ingredientListExpand.css';
 class DisplayIngredients extends Component {
   constructor(props){
     super(props);
-
     this.state={
       listOfIngredients: props.list
     }
