@@ -11,30 +11,22 @@ class AddModal extends Component{
   }
 
   handleSubmit() {
-    let ingredientsArrayUpdater = (ingredient) => {
-      this.setState(prevState => ({
-        ingredientsArr: [
-          ...prevState.ingredientsArr,
-          ingredient
-        ]
-      }))
-    }
+  let splitUserInput = this.state.ingredients.split(',');
+  let newArray = this.state.ingredientsArr.concat(splitUserInput.map(a => a.trim()));
 
-    let splitUserInput = this.state.ingredients.split(',');
-
-    splitUserInput.map(ingredient => {
-      return(
-      ingredientsArrayUpdater(ingredient.trim())
-    )
-    });
-
+  this.setState({ingredientsArr: newArray}, () => {
     let recipeObject = {
       recipeName: this.state.recipe,
-      ingredientList: this.state.ingredientsArr,
+      ingredientList: newArray,
       idNumber: Math.floor((Math.random() * 100000000) + 1)
     }
+    console.log('this happens first');
     this.props.addRecipe(recipeObject);
+    console.log('this happens second');
+    this.setState({ingredientsArr: []});
+  });
   }
+
 
   render(){
     return(
