@@ -8,7 +8,6 @@ class AddModal extends Component{
       ingredients: '',
       ingredientsArr: []
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit() {
@@ -20,6 +19,7 @@ class AddModal extends Component{
         ]
       }))
     }
+
     let splitUserInput = this.state.ingredients.split(',');
 
     splitUserInput.map(ingredient => {
@@ -35,6 +35,7 @@ class AddModal extends Component{
     }
     this.props.addRecipe(recipeObject);
   }
+
   render(){
     return(
         <div className="card">
@@ -56,7 +57,7 @@ class AddModal extends Component{
                Close
                 <i className="fas fa-times"></i>
            </button>
-           <button onClick={this.handleSubmit.bind(this)}
+           <button onClick={e => {this.handleSubmit()}}
                className="btn btn-outline-success btn-sm">
                Add Recipe
               <i className="fas fa-plus"></i>
@@ -67,3 +68,5 @@ class AddModal extends Component{
     }
  }
  export default AddModal;
+
+ //so far the state doesnt
