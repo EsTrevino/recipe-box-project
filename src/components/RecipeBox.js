@@ -41,6 +41,7 @@ class RecipeBox extends Component {
                     list={recipe.ingredientList}
                     recipe={recipe}
                     toggleEdit={this.props.toggleEdit}
+                    deleteRecipe={this.props.deleteRecipe}
                   />}
         </div>
       )

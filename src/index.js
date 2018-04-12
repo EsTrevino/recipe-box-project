@@ -46,12 +46,20 @@ class App extends Component{
           ]
         });
     }
+    const deleteRecipe = (recipeObject) =>{
+      let idForSearching = recipeObject.idNumber;
+      let index = this.state.recipes.findIndex(recipe => recipe.idNumber === idForSearching);
+      this.setState({
+          recipes: this.state.recipes.filter((_, i) => i !== index)
+        });
+    }
     return(
       <div className="container">
         <RecipeBox
           currentRecipesInApp={this.state.recipes}
           toggleEdit={toggleEdit}
           toggleAdd={toggleAdd}
+          deleteRecipe={deleteRecipe}
          />
         {!this.state.addIsHidden &&
           <AddModal
