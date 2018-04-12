@@ -20,9 +20,7 @@ class AddModal extends Component{
       ingredientList: newArray,
       idNumber: Math.floor((Math.random() * 100000000) + 1)
     }
-    console.log('this happens first');
     this.props.addRecipe(recipeObject);
-    console.log('this happens second');
     this.setState({ingredientsArr: []});
   });
   }
@@ -45,7 +43,7 @@ class AddModal extends Component{
             className="form-control"></textarea>
         </div>
            <div className="card-footer">
-             <button className="close-button btn btn-outline-danger btn-sm">
+             <button onClick={() =>{this.props.toggleAdd()}} className="close-button btn btn-outline-danger btn-sm">
                Close
                 <i className="fas fa-times"></i>
            </button>
@@ -60,5 +58,3 @@ class AddModal extends Component{
     }
  }
  export default AddModal;
-
- //so far the state doesnt

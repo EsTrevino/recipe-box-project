@@ -20,14 +20,13 @@ class RecipeBox extends Component {
       this.setState({
         showId: event.target.value
       }, () => {
-        console.log()
+
       })
     }
-
   render() {
     let recipes = this.props.currentRecipesInApp;
-    //function for manipulating and displaying recipes
     let recipesList = recipes.map((recipe, index) => {
+
       return (
         <div className="card individual-recipe-holder" key={index}>
               <div className="alert-success">
@@ -35,21 +34,33 @@ class RecipeBox extends Component {
                   {recipe.recipeName}
                 </Button>
               </div>
+
                 {!this.state.isHidden &&
                   this.state.showId == recipe.idNumber &&
-                  <DisplayIngredients list={recipe.ingredientList}
+                  <DisplayIngredients
+                    list={recipe.ingredientList}
+                    recipe={recipe}
+                    toggleEdit={this.props.toggleEdit}
                   />}
         </div>
       )
     })
     return (
+      <div>
       <Jumbotron className="box">
         <div className="title-holder">
-            <h1 className="jumbo-title">Recipes   <i className="fas fa-utensils"></i></h1>
+            <h1 className="jumbo-title">Recipe Box   <i className="fas fa-utensils"></i></h1>
         </div>
-
-      {recipesList}
+            {recipesList}
+        <div className="button-holder">
+          <button
+            className='btn btn-primary btn-lg'
+            onClick={() => {this.props.toggleAdd()}}>
+            Add Recipe
+          </button>
+      </div>
       </Jumbotron>
+      </div>
     )
   }
 }

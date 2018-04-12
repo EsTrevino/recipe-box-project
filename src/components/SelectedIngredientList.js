@@ -10,7 +10,15 @@ class DisplayIngredients extends Component {
       listOfIngredients: props.list
     }
   }
+  toggle(){
+    this.props.toggleEdit(this.props.recipe);
+  }
 
+  componentWillReceiveProps(nextProps){
+    if(this.props.recipe !== nextProps.recipe){
+      this.setState({listOfIngredients:nextProps.list});
+    }
+  }
   render() {
     return (
       <div className="container">
@@ -34,7 +42,7 @@ class DisplayIngredients extends Component {
           <div className="ingredient-box-bottom row">
             <div className="button-holder">
             <Button className="delete-button" bsStyle="danger">Delete <i className="fas fa-trash-alt "></i></Button>
-            <Button className="edit-button" bsStyle="warning">Edit  <i className="fas fa-edit"></i></Button>
+            <Button onClick={() => {this.toggle()}} className="edit-button" bsStyle="warning">Edit  <i className="fas fa-edit"></i></Button>
             </div>
           </div>
     </div>
