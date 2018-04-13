@@ -12,7 +12,6 @@ class RecipeBox extends Component {
       showId: ''
     }
   }
-
     toggleHidden(event) {
       this.setState({
         isHidden: !this.state.isHidden

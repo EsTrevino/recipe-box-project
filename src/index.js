@@ -9,13 +9,15 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state={
-      recipes:[{recipeName:'Eggs Benedict', ingredientList: ['Eggs', 'Toast', 'Sauce'], idNumber:1}],
+      recipes:[{recipeName:'Eggs Benedict', ingredientList: ['Eggs', 'Toast', 'Sauce'], idNumber:1},
+       {recipeName:'Bacon and Eggs', ingredientList: ['Bacon', 'Eggs', 'Coffee'], idNumber:2}],
       editIsHidden: true,
       addIsHidden: true,
       editObject: null
-
     }
   }
+
+
   render(){
     const toggleAdd = () =>{
       this.setState({addIsHidden: !this.state.addIsHidden});
